@@ -1,0 +1,1 @@
+java -classpath lib/* org.junit.runner.JUnitCore com.trueaccord.example.DebtTests com.trueaccord.example.PaymentPlanTests com.trueaccord.example.HttpGetClientMockTests com.trueaccord.example.HttpGetClientImplTests com.trueaccord.example.AppMockTests com.trueaccord.example.AppRealTests
