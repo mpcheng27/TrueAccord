@@ -132,8 +132,8 @@ public class App {
 	/**
 	 * Extracts a JSON number from the org.json.JSONObject as a BigDecimal.
 	 * 
-	 * @param object the json object to retrieve the attribute from.
-	 * @param key the key attribute to extract as a BigDecimal.
+	 * @param object - the json object to retrieve the attribute from.
+	 * @param key - the key attribute to extract as a BigDecimal.
 	 * @return the attribute as a BigDecimal.
 	 */
 	public static BigDecimal extractAttributeAsBigDecimal(JSONObject object, String key) {
