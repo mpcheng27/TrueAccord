@@ -45,6 +45,8 @@ do not display the next_payment_due_date.
 ### Assumptions Made
 1. I wasn't clear on page 2 where it said _"Output the value as a JSON number."_ When I converted the attribute to javax.json.JsonNumber the attribute would print out as a string. So I assumed this wasn't what was wanted and just output BigDecimal instead so it would parse back to a number instead.  
 2. I wasn't clear if the first payment starts for the very first start day of the payment plan or its due after the first installment period.  I assumed the later, because I assume we would give customers leeway and time to make their first payment.
+3. Since we're dealing with money I used BigDecimal for accuracy.
+4. There were payments made and balances in fractions of cents. I assumed this is allowed and we would maintain the balances and computations in fractions of cents rather than rounding to the nearest hundredth.
 
 ### What Would Be Done Differently With More Time
 - Write javadocs for private methods. 
