@@ -14,7 +14,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.Collection;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,17 +25,14 @@ import org.junit.Test;
  * 
  * @author mpcheng
  */
-public class AppMockTests {
-
-	private static App app;
-	private static Collection<Debt> debts;
-
+public class AppMockTests extends AbstractAppTests {
+	
 	@BeforeClass
 	public static void setup() throws IOException, InterruptedException {
 		app = new App(new HttpGetClientMock());
 		debts = app.processDebts();
 	}
-
+	
 	@Test
 	public void testLoadingDebts() throws IOException, InterruptedException {
 		assertNotNull(debts);
@@ -113,16 +109,4 @@ public class AppMockTests {
 		String actualMessage = exception.getMessage();
 		assertTrue(actualMessage.contains(expectedMessage));
 	}
-
-	private JSONObject fetchDebt(int id) throws IOException, InterruptedException {
-		Collection<Debt> debts = app.processDebts();
-		// Loop through to validate as if we're processing the json line
-		for (Debt debt : debts) {
-			JSONObject json = new JSONObject(debt.asJsonLine());
-			if (Integer.valueOf(json.get(ID).toString()) == id)
-				return json;
-		}
-		throw new RuntimeException("No debt with id " + id + " was found");
-	}
-
 }
