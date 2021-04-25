@@ -1,0 +1,42 @@
+[
+  {
+    "amount": 51.25,
+    "date": "2021-02-15",
+    "payment_plan_id": 0
+  },
+  {
+    "amount": 51.25,
+    "date": "2021-01-30",
+    "payment_plan_id": 0
+  },
+  {
+    "amount": 25,
+    "date": "2021-08-08",
+    "payment_plan_id": 1
+  },
+  {
+    "amount": 25,
+    "date": "2021-08-01",
+    "payment_plan_id": 1
+  },
+  {
+    "amount": 1000.00,
+    "date": "2021-01-08",
+    "payment_plan_id": 2
+  },
+  {
+    "amount": 5000.50,
+    "date": "2021-01-01",
+    "payment_plan_id": 3
+  },
+  {
+    "amount": 5000.50,
+    "date": "2021-01-15",
+    "payment_plan_id": 3
+  },
+  {
+    "amount": 5000.50,
+    "date": "2021-01-29",
+    "payment_plan_id": 3
+  }
+]

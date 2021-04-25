@@ -1,0 +1,34 @@
+[
+  {
+    "amount_to_pay": 100,
+    "debt_id": 0,
+    "id": 0,
+    "installment_amount": 10,
+    "installment_frequency": "WEEKLY",
+    "start_date": "2021-01-01"
+  },
+  {
+    "amount_to_pay": 500,
+    "debt_id": 1,
+    "id": 1,
+    "installment_amount": 25,
+    "installment_frequency": "WEEKLY",
+    "start_date": "2021-01-01"
+  },
+  {
+    "amount_to_pay": 10000,
+    "debt_id": 2,
+    "id": 2,
+    "installment_amount": 1000.00,
+    "installment_frequency": "BI_WEEKLY",
+    "start_date": "2021-01-01"
+  },
+  {
+    "amount_to_pay": 50000.50,
+    "debt_id": 3,
+    "id": 3,
+    "installment_amount": 5000.50,
+    "installment_frequency": "BI_WEEKLY",
+    "start_date": "2021-01-01"
+  }
+]
