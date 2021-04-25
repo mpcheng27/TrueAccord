@@ -124,8 +124,8 @@ public class Debt {
 		jsonObject.put(AMOUNT, this.getAmount());
 		jsonObject.put(IS_IN_PAYMENT_PLAN, this.isInPaymentPlan());
 		jsonObject.put(REMAINING_AMOUNT, this.getRemainingAmount());
-		jsonObject.put(NEXT_PAYMENT_DUE_DATE, this.getNextPaymentDueDate()); // NOTE: JSONObject doesn't print out
-																				// next_payment_due_date if its null
+		// NOTE: JSONObject doesn't print out next_payment_due_date if its null
+		jsonObject.put(NEXT_PAYMENT_DUE_DATE, this.getNextPaymentDueDate());
 		return jsonObject.toString();
 	}
 }
