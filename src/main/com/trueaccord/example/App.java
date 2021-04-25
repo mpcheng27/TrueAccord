@@ -117,7 +117,7 @@ public class App {
 	/**
 	 * Main entry point to execute the debt processing.
 	 * 
-	 * @param args
+	 * @param args - no arguments are expected
 	 * @throws IOException
 	 * @throws InterruptedException
 	 */
@@ -132,9 +132,9 @@ public class App {
 	/**
 	 * Extracts a JSON number from the org.json.JSONObject as a BigDecimal.
 	 * 
-	 * @param object
-	 * @param key    the key attribute to extract as a BigDecimal.
-	 * @return - the attribute as a BigDecimal.
+	 * @param object the json object to retrieve the attribute from.
+	 * @param key the key attribute to extract as a BigDecimal.
+	 * @return the attribute as a BigDecimal.
 	 */
 	public static BigDecimal extractAttributeAsBigDecimal(JSONObject object, String key) {
 		return BigDecimal.valueOf(Double.parseDouble(object.get(key).toString()));
