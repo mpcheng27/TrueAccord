@@ -47,9 +47,9 @@ public class App {
 	}
 
 	/**
-	 * Fetches and processes all the debts and returns them
+	 * Fetches and processes all the debts and returns them as a collection.
 	 * 
-	 * @return
+	 * @return the processed debts as a collection.
 	 * @throws IOException
 	 * @throws InterruptedException
 	 */
