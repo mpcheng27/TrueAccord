@@ -11,7 +11,7 @@ import static com.trueaccord.example.AppConstants.*;
 
 /**
  * Represents a customer debt. Provides various utility functions in regards to
- * the debt.
+ * the debt. A debt may or may not be associated with a payment plan.
  * 
  * @author mpcheng
  */
