@@ -14,6 +14,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,12 +27,20 @@ import org.junit.Test;
  * 
  * @author mpcheng
  */
-public class AppRealTests extends AbstractAppTests {
+public class AppRealTests {
+	
+	protected static App app;
+	protected static Map<Integer, Debt> debts;
+	protected static Map<Integer, JSONObject> debtsAsJson;
 	
 	@BeforeClass
 	public static void setup() throws IOException, InterruptedException {
 		app = new App(new HttpGetClientImpl());
 		debts = app.processDebts();
+		debtsAsJson = new HashMap<Integer, JSONObject>();
+		for (Map.Entry<Integer, Debt> entry : debts.entrySet()) {
+			debtsAsJson.put(entry.getKey(), new JSONObject(entry.getValue().asJsonLine()));
+		}
 	}
 	
 	@Test
@@ -42,7 +52,8 @@ public class AppRealTests extends AbstractAppTests {
 	@Test
 	public void validateJsonLineResultsForDebt0() throws IOException, InterruptedException {
 		int id = 0;
-		JSONObject debtAsJson = fetchDebt(id);
+		JSONObject debtAsJson = debtsAsJson.get(id);
+		assertNotNull(debtAsJson);
 		assertEquals(id, debtAsJson.get(ID));
 		assertEquals(BigDecimal.valueOf(123.46), extractAttributeAsBigDecimal(debtAsJson, AMOUNT));
 		assertEquals(BigDecimal.valueOf(0.0), extractAttributeAsBigDecimal(debtAsJson, REMAINING_AMOUNT));
@@ -61,7 +72,8 @@ public class AppRealTests extends AbstractAppTests {
 	@Test
 	public void validateJsonLineResultsForDebt1() throws IOException, InterruptedException {
 		int id = 1;
-		JSONObject debtAsJson = fetchDebt(id);
+		JSONObject debtAsJson = debtsAsJson.get(id);
+		assertNotNull(debtAsJson);
 		assertEquals(id, debtAsJson.get(ID));
 		assertEquals(BigDecimal.valueOf(100.00), extractAttributeAsBigDecimal(debtAsJson, AMOUNT));
 		assertEquals(BigDecimal.valueOf(50.00), extractAttributeAsBigDecimal(debtAsJson, REMAINING_AMOUNT));
@@ -72,7 +84,8 @@ public class AppRealTests extends AbstractAppTests {
 	@Test
 	public void validateJsonLineResultsForDebt2() throws IOException, InterruptedException {
 		int id = 2;
-		JSONObject debtAsJson = fetchDebt(id);
+		JSONObject debtAsJson = debtsAsJson.get(id);
+		assertNotNull(debtAsJson);
 		assertEquals(id, debtAsJson.get(ID));
 		assertEquals(BigDecimal.valueOf(4920.34), extractAttributeAsBigDecimal(debtAsJson, AMOUNT));
 		assertEquals(BigDecimal.valueOf(607.67), extractAttributeAsBigDecimal(debtAsJson, REMAINING_AMOUNT));
@@ -83,7 +96,8 @@ public class AppRealTests extends AbstractAppTests {
 	@Test
 	public void validateJsonLineResultsForDebt3() throws IOException, InterruptedException {
 		int id = 3;
-		JSONObject debtAsJson = fetchDebt(id);
+		JSONObject debtAsJson = debtsAsJson.get(id);
+		assertNotNull(debtAsJson);
 		assertEquals(id, debtAsJson.get(ID));
 		assertEquals(BigDecimal.valueOf(12938.00), extractAttributeAsBigDecimal(debtAsJson, AMOUNT));
 		assertEquals(BigDecimal.valueOf(622.415), extractAttributeAsBigDecimal(debtAsJson, REMAINING_AMOUNT));
@@ -94,7 +108,8 @@ public class AppRealTests extends AbstractAppTests {
 	@Test
 	public void validateJsonLineResultsForDebt4() throws IOException, InterruptedException {
 		int id = 4;
-		JSONObject debtAsJson = fetchDebt(id);
+		JSONObject debtAsJson = debtsAsJson.get(id);
+		assertNotNull(debtAsJson);
 		assertEquals(id, debtAsJson.get(ID));
 		assertEquals(BigDecimal.valueOf(9238.02), extractAttributeAsBigDecimal(debtAsJson, AMOUNT));
 		assertEquals(BigDecimal.valueOf(9238.02), extractAttributeAsBigDecimal(debtAsJson, REMAINING_AMOUNT));

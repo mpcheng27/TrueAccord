@@ -47,13 +47,13 @@ public class App {
 	}
 
 	/**
-	 * Fetches and processes all the debts and returns them as a collection.
+	 * Fetches and processes all the debts and returns them
 	 * 
-	 * @return the processed debts as a collection.
+	 * @return
 	 * @throws IOException
 	 * @throws InterruptedException
 	 */
-	public Collection<Debt> processDebts() throws IOException, InterruptedException {
+	public Map<Integer, Debt> processDebts() throws IOException, InterruptedException {
 		Map<Integer, Debt> debts = new TreeMap<Integer, Debt>();
 		String responseString = client.fetchEndPoint(HttpGetClient.DEBT_ENDPOINT);
 		JSONArray debtsAsJson = new JSONArray(responseString);
@@ -70,7 +70,7 @@ public class App {
 			}
 			debts.get(paymentPlan.getDebtId()).setPaymentPlan(paymentPlan);
 		}
-		return debts.values();
+		return debts;
 	}
 
 	private Collection<PaymentPlan> processPaymentPlans() throws IOException, InterruptedException {
@@ -117,14 +117,14 @@ public class App {
 	/**
 	 * Main entry point to execute the debt processing.
 	 * 
-	 * @param args - no arguments are expected
+	 * @param args
 	 * @throws IOException
 	 * @throws InterruptedException
 	 */
 	public static void main(String[] args) throws IOException, InterruptedException {
 		App app = new App(new HttpGetClientImpl());
-		Collection<Debt> debts = app.processDebts();
-		for (Debt debt : debts) {
+		Map<Integer, Debt> debts = app.processDebts();
+		for (Debt debt : debts.values()) {
 			System.out.println(debt.asJsonLine());
 		}
 	}
@@ -132,9 +132,9 @@ public class App {
 	/**
 	 * Extracts a JSON number from the org.json.JSONObject as a BigDecimal.
 	 * 
-	 * @param object - the json object to retrieve the attribute from.
-	 * @param key - the key attribute to extract as a BigDecimal.
-	 * @return the attribute as a BigDecimal.
+	 * @param object
+	 * @param key    the key attribute to extract as a BigDecimal.
+	 * @return - the attribute as a BigDecimal.
 	 */
 	public static BigDecimal extractAttributeAsBigDecimal(JSONObject object, String key) {
 		return BigDecimal.valueOf(Double.parseDouble(object.get(key).toString()));

@@ -54,3 +54,4 @@ do not display the next_payment_due_date.
 - Write code to process the data as a stream rather than load all into memory at once, for larger scale application.
 - Write more tests to handle more unexpected corner cases.
 - Perhaps find a different json api to use that would output an attribute despite it being null. Or just write my own toJSONLine() method that will output the json object the format desired.
+- Write algorithms to be more efficient for performance and scalability.
