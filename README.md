@@ -47,6 +47,7 @@ do not display the next_payment_due_date.
 2. I wasn't clear if the first payment starts for the very first start day of the payment plan or its due after the first installment period.  I assumed the later, because I assume we would give customers leeway and time to make their first payment.
 3. Since we're dealing with money I used BigDecimal for accuracy.
 4. There were payments made and balances in fractions of cents. I assumed this is allowed and we would maintain the balances and computations in fractions of cents rather than rounding to the nearest hundredth.
+5. I put an assumption that there wouldn't be more than 10000 installments for a payment plan to avoid putting an infinite loop.
 
 ### What Would Be Done Differently With More Time
 - Write javadocs for private methods. 
@@ -54,4 +55,4 @@ do not display the next_payment_due_date.
 - Write code to process the data as a stream rather than load all into memory at once, for larger scale application.
 - Write more tests to handle more unexpected corner cases.
 - Perhaps find a different json api to use that would output an attribute despite it being null. Or just write my own toJSONLine() method that will output the json object the format desired.
-- Write algorithms to be more efficient for performance and scalability.
+- Write algorithms and code to be more efficient (i.e. remove any possible duplicate work or finding what caching can be done) for performance and scalability.

@@ -106,7 +106,7 @@ public class Debt {
 	 *         is no payment plan or if the debt has been paid off.
 	 */
 	public String getNextPaymentDueDate() {
-		if (!this.isInPaymentPlan() || this.paymentPlan.getRemainingAmount().doubleValue() <= 0.0) {
+		if (!this.isInPaymentPlan()) {
 			return null;
 		}
 		Date nextPaymentDueDate = this.paymentPlan.getNextPaymentDueDate();
@@ -125,7 +125,7 @@ public class Debt {
 		jsonObject.put(IS_IN_PAYMENT_PLAN, this.isInPaymentPlan());
 		jsonObject.put(REMAINING_AMOUNT, this.getRemainingAmount());
 		// NOTE: JSONObject doesn't print out next_payment_due_date if its null
-		jsonObject.put(NEXT_PAYMENT_DUE_DATE, this.getNextPaymentDueDate());
+		jsonObject.put(NEXT_PAYMENT_DUE_DATE, this.getNextPaymentDueDate()); 
 		return jsonObject.toString();
 	}
 }
