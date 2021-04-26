@@ -53,6 +53,6 @@ do not display the next_payment_due_date.
 - Write javadocs for private methods. 
 - Write code to be defensive for any type of bad inputs.  I tried to catch some bad inputs where they were obvious, but there is always more that could be done.
 - Write code to process the data as a stream rather than load all into memory at once, for larger scale application.
-- Write more tests to handle more unexpected corner cases.
+- Write more tests to validate more unexpected corner cases.
 - Perhaps find a different json api to use that would output an attribute despite it being null. Or just write my own toJSONLine() method that will output the json object the format desired.
 - Write algorithms and code to be more efficient (i.e. remove any possible duplicate work or finding what caching can be done) for performance and scalability.
