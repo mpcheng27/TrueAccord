@@ -26,7 +26,7 @@ do not display the next_payment_due_date.
 
 ### Main Classes
 - *App* - Main application which processes all debts, associated payments plans if any and their payments, and then outputs the debts with the new fields. The logic to fetch data, parse it and construct associated objects reside here.
-- *Debt* - Represents a given customers debt account and how much is owed.  May or may not be associated with a payment plan. This class wraps payment plan if there is one associated and adds a few other business logic use cases to handle when there isn't one associated.  
+- *Debt* - Represents a given customers debt account and how much is owed.  May or may not be associated with a payment plan. This class wraps payment plan if there is one associated and adds a few other business logic use cases to handle when there isn't one associated.  It also contains the logic for "is_in_payment_plan".
 - *PaymentPlan* - Represents a payment plan for a given debt account. The majority business logic for remaining amount and next payment due date is here.
 - *HttpGetClient* - Interface to fetch various data (i.e. debts, payment plans, payments) from the data store. Two implementations for a real data retrieval and one for mock data for testing.
   
